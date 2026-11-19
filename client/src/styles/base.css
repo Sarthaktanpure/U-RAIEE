@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white min-h-screen font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Responsive typography scaling for 4K / Smartboard displays */
+  @media (min-width: 1920px) {
+    html {
+      font-size: 16.5px;
+    }
+  }
+
+  /* Touch ergonomics for interactive smartboards & mobile screens */
+  @media (pointer: coarse) {
+    button, a, input, select, textarea {
+      touch-action: manipulation;
+    }
+  }
+}
+
+/* Custom premium responsive utility components */
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 min-h-[38px] sm:min-h-[40px] rounded-lg bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white font-medium text-xs sm:text-sm transition-all duration-200 shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-3.5 sm:px-4 py-2 min-h-[38px] sm:min-h-[40px] rounded-lg bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-700 font-medium text-xs sm:text-sm border border-slate-200 transition-all duration-200 shadow-sm hover:border-slate-300 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed select-none;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-1.5 min-h-[34px] rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 font-medium text-xs border border-rose-200 transition-all duration-200 active:scale-[0.99];
+  }
+
+  .btn-small {
+    @apply px-2.5 sm:px-3 py-1 sm:py-1.5 min-h-[32px] text-xs rounded-md;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-xl sm:rounded-2xl border border-slate-200/80 shadow-subtle hover:shadow-card transition-shadow duration-200 p-4 sm:p-6 lg:p-7;
+  }
+
+  .input-field {
+    @apply w-full rounded-lg border border-slate-200 bg-white px-3 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition-all duration-150;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium tracking-wide whitespace-nowrap;
+  }
+}
+
+/* Responsive custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
